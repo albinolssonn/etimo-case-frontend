@@ -9,7 +9,7 @@ const PokeListPage = ({ allPokemons, getAllPokemons }) => {
 
   useEffect(() => {
     getAllPokemons();
-  });
+  }, []);
 
   return (
     <div className="main-content">

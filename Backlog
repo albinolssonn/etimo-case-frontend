@@ -1,3 +1,16 @@
+GRID/ LIST
 1. Layout toggle i localstorage
-2. Rensa AllPokemons när man väljer en.
-3. Sökfunktion i Top Bar
+2. Rensa AllPokemons när man väljer en -> fixa den konstant uppdaterande listan
+3. Kolla storlek på allting på mindre skärm, kan behöva optimeras
+4. Sökfunktion i Top Bar -> Lägst prio
+5. Dark mode? - Ännu lägre prio
+6. 
+
+Detail
+1. Mobiloptimera -> Flex istället för grid vid små skärmar -> anpassningar därefter
+2. Fixa stepperknapparnas utseende både statiskt och aktivt. 
+
+GLOBALT
+1. Bryt ut alla komponenter, skriptsen är för långa. 
+2. Fixa text och färger
+

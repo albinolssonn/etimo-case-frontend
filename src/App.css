@@ -275,9 +275,47 @@
 }
 
 .info-container {
-  padding: 10px;
   border-radius: 5px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.stepper-controller {
+  width: 100%;
+  border-bottom: 1px solid #c4c4c4;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+#stepper-btn {
+  height: 50px;
+  width: 100%;
+  font-size: 16px;
+  border: none;
+  background: none;
+}
+
+.info-content {
+  padding: 10px;
+}
+
+.info-list {
+  max-height: 250px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  overflow-y: auto;
+}
+
+.content-row {
+  padding: 10px 10px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #c4c4c4;
+  border-radius: 5px;
 }
 
 /* Hover */
@@ -298,5 +336,9 @@
 }
 
 .back-btn {
+  cursor: pointer;
+}
+
+#stepper-btn {
   cursor: pointer;
 }
