@@ -4,13 +4,14 @@ GRID/ LIST
 3. Kolla storlek på allting på mindre skärm, kan behöva optimeras
 4. Sökfunktion i Top Bar -> Lägst prio
 5. Dark mode? - Ännu lägre prio
-6. 
+
 
 Detail
 1. Mobiloptimera -> Flex istället för grid vid små skärmar -> anpassningar därefter
-2. Fixa stepperknapparnas utseende både statiskt och aktivt. 
+2. Fixa stepperknapparnas utseende både statiskt och aktivt. (/)
 
 GLOBALT
-1. Bryt ut alla komponenter, skriptsen är för långa. 
-2. Fixa text och färger
+1. Lagra anrop i Cache (/)
+2. Bryt ut alla komponenter, skriptsen är för långa. 
+3. Fixa text och färger
 

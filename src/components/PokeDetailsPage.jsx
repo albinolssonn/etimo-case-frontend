@@ -2,36 +2,27 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { searchIcon } from "../functions/icons";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import { addDataIntoCache } from "../functions/cache";
 
 const PokeDetailsPage = () => {
   const { id } = useParams();
   const [pokemon, setPokemon] = useState([]);
-  const [locationArea, setLocationArea] = useState([]);
   const [stepperValue, setStepperValue] = useState(1);
   const navigate = useNavigate();
+  const cacheName = "API-call-single";
 
   useEffect(() => {
     getPokemonOnID();
-    getLocationArea();
   }, []);
 
   const getPokemonOnID = async () => {
+    const fetchUrl = `https://pokeapi.co/api/v2/pokemon/${id}/`;
     try {
-      const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`);
+      const res = await fetch(fetchUrl);
       const data = await res.json();
-      setPokemon(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+      addDataIntoCache(cacheName, fetchUrl, fetchUrl);
 
-  const getLocationArea = async () => {
-    try {
-      const res = await fetch(
-        `https://pokeapi.co/api/v2/pokemon/${id}/encounters`
-      );
-      const data = await res.json();
-      setLocationArea(data);
+      setPokemon(data);
     } catch (error) {
       console.log(error);
     }
@@ -123,19 +114,31 @@ const PokeDetailsPage = () => {
                 <div className="stepper-controller">
                   <div className="button-container">
                     <button
-                      id="stepper-btn"
+                      id={
+                        stepperValue === 1
+                          ? "stepper-btn-active"
+                          : "stepper-btn"
+                      }
                       onClick={() => setStepperValue(1)}
                     >
                       Pokemon Info
                     </button>
                     <button
-                      id="stepper-btn"
+                      id={
+                        stepperValue === 2
+                          ? "stepper-btn-active"
+                          : "stepper-btn"
+                      }
                       onClick={() => setStepperValue(2)}
                     >
                       Abilities
                     </button>
                     <button
-                      id="stepper-btn"
+                      id={
+                        stepperValue === 3
+                          ? "stepper-btn-active"
+                          : "stepper-btn"
+                      }
                       onClick={() => setStepperValue(3)}
                     >
                       Battle Moves
@@ -184,7 +187,7 @@ const PokeDetailsPage = () => {
                               return (
                                 <div className="content-row">
                                   <p>{ab.ability.name}</p>
-                                  <p>Slot: {ab.slot}</p>
+                                  <p>Slots: {ab.slot}</p>
                                 </div>
                               );
                             })}

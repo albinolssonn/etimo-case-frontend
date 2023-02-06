@@ -4,6 +4,7 @@ import "./App.css";
 import HeaderComponent from "./components/HeaderComponent";
 import PokeDetailsPage from "./components/PokeDetailsPage";
 import PokeListPage from "./components/PokeListPage";
+import { addDataIntoCache } from "./functions/cache";
 
 function App() {
   // const [pokemon, setPokemon] = useState([]);
@@ -11,10 +12,15 @@ function App() {
   const [loadPoke, setLoadPoke] = useState(
     "https://pokeapi.co/api/v2/pokemon?limit=20"
   );
+  const [cacheData, setCacheData] = useState();
+  const cacheName = "APICalls";
 
   const getAllPokemons = async () => {
     const res = await fetch(loadPoke);
     const data = await res.json();
+
+    addDataIntoCache(cacheName, loadPoke, loadPoke);
+
     setLoadPoke(data.next);
 
     function createPokemonObject(result) {
