@@ -6,7 +6,7 @@ import ListLayout from "../layout/ListLayout";
 import ListTopBar from "./ListTopBar";
 
 const ListPage = () => {
-  const [layoutToggle, setLayoutToggle] = useState(false);
+  const [layoutToggle, setLayoutToggle] = useState(true);
   const [searchInput, setSearchInput] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [allPokemons, setAllPokemons] = useState([]);
