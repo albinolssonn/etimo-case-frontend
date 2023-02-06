@@ -2,7 +2,7 @@ import React from "react";
 import ListPokeBtn from "../components/ListPokeBtn";
 import ListPokeRow from "../components/ListPokeRow";
 
-const ListLayout = ({ allPokemons, getAllPokemons, searchResult }) => {
+const ListLayout = ({ allPokemons, nextPokemonHandler, searchResult }) => {
   return (
     <div className="pokemon-list">
       {searchResult.length !== 0 ? (
@@ -25,7 +25,7 @@ const ListLayout = ({ allPokemons, getAllPokemons, searchResult }) => {
           </div>
           <div className="btn-container">
             <ListPokeBtn
-              btnAction={getAllPokemons}
+              btnAction={nextPokemonHandler}
               btnText={"More Pokemons!"}
             />
           </div>

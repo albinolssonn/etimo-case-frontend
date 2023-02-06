@@ -6,9 +6,9 @@ const ListTopBar = ({
   layoutToggle,
   setLayoutToggle,
   setSearchInput,
-  getPokemonOnSearch,
   searchResult,
   resetHandler,
+  searchHandler,
 }) => {
   // Eventually function with localstorage keep track of the user choise in this section
 
@@ -36,7 +36,7 @@ const ListTopBar = ({
           />
           <button
             id="search-btn"
-            onClick={() => getPokemonOnSearch()}
+            onClick={() => searchHandler()}
           >
             Search
           </button>

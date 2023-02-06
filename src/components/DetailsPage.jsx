@@ -1,34 +1,19 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-
-import { addDataIntoCache } from "../functions/cache";
+import { useParams } from "react-router-dom";
 import DetailHeaderComponent from "./DetailHeader";
 import DetailTopBar from "./DetailTopBar";
 import DetailBaseStats from "./DetailBaseStats";
 import DetailInfoStepper from "./DetailInfoStepper";
+import { getPokemonOnID } from "../functions/getFunctions";
 
 const DetailsPage = () => {
   const { id } = useParams();
   const [pokemon, setPokemon] = useState([]);
   const [stepperValue, setStepperValue] = useState(1);
-  const cacheName = "API-call-single";
 
   useEffect(() => {
-    getPokemonOnID();
+    getPokemonOnID(id, setPokemon);
   }, []);
-
-  const getPokemonOnID = async () => {
-    const fetchUrl = `https://pokeapi.co/api/v2/pokemon/${id}/`;
-    try {
-      const res = await fetch(fetchUrl);
-      const data = await res.json();
-      addDataIntoCache(cacheName, fetchUrl, fetchUrl);
-
-      setPokemon(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   if (pokemon.id) {
     return (

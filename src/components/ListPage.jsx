@@ -1,22 +1,34 @@
 import React, { useEffect, useState } from "react";
 import "../colors.css";
+import { getAllPokemons, getPokemonOnSearch } from "../functions/getFunctions";
 import GridLayout from "../layout/GridLayout";
 import ListLayout from "../layout/ListLayout";
 import ListTopBar from "./ListTopBar";
 
-const ListPage = ({
-  allPokemons,
-  getAllPokemons,
-  setSearchInput,
-  getPokemonOnSearch,
-  searchResult,
-  resetHandler,
-}) => {
+const ListPage = () => {
   const [layoutToggle, setLayoutToggle] = useState(false);
+  const [searchInput, setSearchInput] = useState("");
+  const [searchResult, setSearchResult] = useState([]);
+  const [allPokemons, setAllPokemons] = useState([]);
+  const [fetchUrl, setFetchUrl] = useState(
+    "https://pokeapi.co/api/v2/pokemon?limit=20"
+  );
 
   useEffect(() => {
-    getAllPokemons();
+    getAllPokemons(fetchUrl, setFetchUrl, setAllPokemons);
   }, []);
+
+  const nextPokemonHandler = () => {
+    getAllPokemons(fetchUrl, setFetchUrl, setAllPokemons);
+  };
+
+  const searchHandler = () => {
+    getPokemonOnSearch(searchInput, setSearchResult);
+  };
+
+  const resetHandler = () => {
+    setSearchResult([]);
+  };
 
   return (
     <div className="main-content">
@@ -24,21 +36,21 @@ const ListPage = ({
         layoutToggle={layoutToggle}
         setLayoutToggle={setLayoutToggle}
         setSearchInput={setSearchInput}
-        getPokemonOnSearch={getPokemonOnSearch}
         searchResult={searchResult}
+        searchHandler={searchHandler}
         resetHandler={resetHandler}
       />
 
       {layoutToggle ? (
         <GridLayout
           allPokemons={allPokemons}
-          getAllPokemons={getAllPokemons}
+          nextPokemonHandler={nextPokemonHandler}
           searchResult={searchResult}
         />
       ) : (
         <ListLayout
           allPokemons={allPokemons}
-          getAllPokemons={getAllPokemons}
+          nextPokemonHandler={nextPokemonHandler}
           searchResult={searchResult}
         />
       )}
