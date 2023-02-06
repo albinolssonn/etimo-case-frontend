@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
-import HeaderComponent from "./components/HeaderComponent";
-import PokeDetailsPage from "./components/PokeDetailsPage";
-import PokeListPage from "./components/PokeListPage";
+import PageHeader from "./components/PageHeader";
+import DetailsPage from "./components/DetailsPage";
+import ListPage from "./components/ListPage";
 import { addDataIntoCache } from "./functions/cache";
 
 function App() {
@@ -37,12 +37,12 @@ function App() {
     <div className="App">
       <Router>
         <div className="app">
-          <HeaderComponent />
+          <PageHeader />
           <Routes>
             <Route
               path="/"
               element={
-                <PokeListPage
+                <ListPage
                   allPokemons={allPokemons}
                   setAllPokemons={setAllPokemons}
                   getAllPokemons={getAllPokemons}
@@ -51,7 +51,7 @@ function App() {
             />
             <Route
               path="/pokedetails/:id"
-              element={<PokeDetailsPage />}
+              element={<DetailsPage />}
             />
           </Routes>
         </div>

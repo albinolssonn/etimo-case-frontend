@@ -1,6 +1,6 @@
 import React from "react";
-import PokeBtnComponent from "../components/PokeBtnComponent";
-import PokeCard from "../components/PokeCard";
+import ListPokeCard from "../components/ListPokeCard";
+import ListPokeBtn from "../components/ListPokeBtn";
 
 const GridLayout = ({ allPokemons, getAllPokemons }) => {
   return (
@@ -10,7 +10,7 @@ const GridLayout = ({ allPokemons, getAllPokemons }) => {
           .sort((pokemon1, pokemon2) => pokemon1.id - pokemon2.id)
           .map((pokemon, key) => {
             return (
-              <PokeCard
+              <ListPokeCard
                 pokemon={pokemon}
                 key={key}
               />
@@ -19,7 +19,7 @@ const GridLayout = ({ allPokemons, getAllPokemons }) => {
       </div>
 
       <div className="btn-container">
-        <PokeBtnComponent
+        <ListPokeBtn
           btnAction={getAllPokemons}
           btnText={"More Pokemons!"}
         />

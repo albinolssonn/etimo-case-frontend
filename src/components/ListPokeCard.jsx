@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { searchIcon } from "../functions/icons";
 
-const PokeCard = ({ pokemon, key }) => {
+const ListPokeCard = ({ pokemon, key }) => {
   const navigate = useNavigate();
 
   return (
@@ -61,4 +61,4 @@ const PokeCard = ({ pokemon, key }) => {
   );
 };
 
-export default PokeCard;
+export default ListPokeCard;

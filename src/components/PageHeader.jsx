@@ -1,6 +1,6 @@
 import React from "react";
 
-const HeaderComponent = () => {
+const PageHeader = () => {
   return (
     <div className="header-section">
       <div className="header-container">
@@ -10,4 +10,4 @@ const HeaderComponent = () => {
   );
 };
 
-export default HeaderComponent;
+export default PageHeader;

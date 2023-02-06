@@ -1,6 +1,6 @@
 import React from "react";
-import PokeBtnComponent from "../components/PokeBtnComponent";
-import PokeRow from "../components/PokeRow";
+import ListPokeBtn from "../components/ListPokeBtn";
+import ListPokeRow from "../components/ListPokeRow";
 
 const ListLayout = ({ allPokemons, getAllPokemons }) => {
   return (
@@ -10,7 +10,7 @@ const ListLayout = ({ allPokemons, getAllPokemons }) => {
           .sort((pokemon1, pokemon2) => pokemon1.id - pokemon2.id)
           .map((pokemon, key) => {
             return (
-              <PokeRow
+              <ListPokeRow
                 pokemon={pokemon}
                 key={key}
               />
@@ -18,7 +18,7 @@ const ListLayout = ({ allPokemons, getAllPokemons }) => {
           })}
       </div>
       <div className="btn-container">
-        <PokeBtnComponent
+        <ListPokeBtn
           btnAction={getAllPokemons}
           btnText={"More Pokemons!"}
         />

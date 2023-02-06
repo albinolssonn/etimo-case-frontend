@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 const DetailHeader = ({ pokemon }) => {
   const navigate = useNavigate();
 
-  // if (pokemon.id) {
   return (
     <div
       className="detail-header"
@@ -34,6 +33,5 @@ const DetailHeader = ({ pokemon }) => {
     </div>
   );
 };
-// };
 
 export default DetailHeader;

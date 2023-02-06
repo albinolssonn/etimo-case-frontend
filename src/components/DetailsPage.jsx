@@ -7,7 +7,7 @@ import DetailTopBar from "./DetailTopBar";
 import DetailBaseStats from "./DetailBaseStats";
 import DetailInfoStepper from "./DetailInfoStepper";
 
-const PokeDetailsPage = () => {
+const DetailsPage = () => {
   const { id } = useParams();
   const [pokemon, setPokemon] = useState([]);
   const [stepperValue, setStepperValue] = useState(1);
@@ -30,29 +30,27 @@ const PokeDetailsPage = () => {
     }
   };
 
-  return (
-    <>
-      {pokemon.id && (
-        <div className="detail-section">
-          <DetailHeaderComponent pokemon={pokemon} />
+  if (pokemon.id) {
+    return (
+      <div className="detail-section">
+        <DetailHeaderComponent pokemon={pokemon} />
 
-          <div className="content-container">
-            <DetailTopBar pokemon={pokemon} />
+        <div className="content-container">
+          <DetailTopBar pokemon={pokemon} />
 
-            <div className="info-grid-container">
-              <DetailBaseStats pokemon={pokemon} />
+          <div className="info-grid-container">
+            <DetailBaseStats pokemon={pokemon} />
 
-              <DetailInfoStepper
-                pokemon={pokemon}
-                stepperValue={stepperValue}
-                setStepperValue={setStepperValue}
-              />
-            </div>
+            <DetailInfoStepper
+              pokemon={pokemon}
+              stepperValue={stepperValue}
+              setStepperValue={setStepperValue}
+            />
           </div>
         </div>
-      )}
-    </>
-  );
+      </div>
+    );
+  }
 };
 
-export default PokeDetailsPage;
+export default DetailsPage;

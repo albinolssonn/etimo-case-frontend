@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import "../colors.css";
 import GridLayout from "../layout/GridLayout";
 import ListLayout from "../layout/ListLayout";
-import TopBarContainer from "./TopBarContainer";
+import ListTopBar from "./ListTopBar";
 
-const PokeListPage = ({ allPokemons, getAllPokemons }) => {
+const ListPage = ({ allPokemons, getAllPokemons }) => {
   const [layoutToggle, setLayoutToggle] = useState(false);
 
   useEffect(() => {
@@ -13,7 +13,7 @@ const PokeListPage = ({ allPokemons, getAllPokemons }) => {
 
   return (
     <div className="main-content">
-      <TopBarContainer
+      <ListTopBar
         layoutToggle={layoutToggle}
         setLayoutToggle={setLayoutToggle}
       />
@@ -33,4 +33,4 @@ const PokeListPage = ({ allPokemons, getAllPokemons }) => {
   );
 };
 
-export default PokeListPage;
+export default ListPage;

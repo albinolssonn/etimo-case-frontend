@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import GridViewIcon from "@mui/icons-material/GridView";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 
-const TopBarContainer = ({ layoutToggle, setLayoutToggle }) => {
+const ListTopBar = ({ layoutToggle, setLayoutToggle }) => {
   // Eventually function with localstorage keep track of the user choise in this section
 
   // const layoutHandler = () => {
@@ -35,4 +35,4 @@ const TopBarContainer = ({ layoutToggle, setLayoutToggle }) => {
   );
 };
 
-export default TopBarContainer;
+export default ListTopBar;

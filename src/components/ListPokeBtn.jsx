@@ -1,6 +1,6 @@
 import React from "react";
 
-const PokeBtnComponent = ({ btnAction, btnText }) => {
+const ListPokeBtn = ({ btnAction, btnText }) => {
   return (
     <button
       onClick={btnAction}
@@ -11,4 +11,4 @@ const PokeBtnComponent = ({ btnAction, btnText }) => {
   );
 };
 
-export default PokeBtnComponent;
+export default ListPokeBtn;
