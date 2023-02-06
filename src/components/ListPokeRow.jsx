@@ -29,7 +29,7 @@ const ListPokeRow = ({ pokemon, key }) => {
               {pokemon.name.charAt(0).toUpperCase() + pokemon.name.slice(1)}
             </p>
 
-            <p>{pokemon.id}</p>
+            <p>#{pokemon.id}</p>
           </div>
 
           <div className="top-content-holder">

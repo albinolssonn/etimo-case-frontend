@@ -56,9 +56,19 @@
 }
 
 #search-btn {
+  background-color: #a5ec92;
   padding: 0px 20px;
   border-radius: 5px;
   border: none;
+  transition: 0.2s ease-in;
+}
+
+#reset-btn {
+  background-color: #efa2a2;
+  padding: 0px 20px;
+  border-radius: 5px;
+  border: none;
+  transition: 0.2s ease-in;
 }
 
 .grid-option-btn {
@@ -358,7 +368,9 @@
 }
 
 .pokemon-card:hover,
-.pokemon-row:hover {
+.pokemon-row:hover,
+.back-btn:hover,
+#stepper-btn:hover {
   cursor: pointer;
 }
 
@@ -367,11 +379,13 @@
   cursor: pointer;
 }
 
-.back-btn {
+#search-btn:hover {
+  background: #d0f6c6;
   cursor: pointer;
 }
 
-#stepper-btn {
+#reset-btn:hover {
+  background: #f6c9cc;
   cursor: pointer;
 }
 

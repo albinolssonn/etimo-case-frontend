@@ -24,7 +24,7 @@ const ListPokeCard = ({ pokemon, key }) => {
               height={"20px"}
               alt=""
             />
-            <p>{pokemon.id}</p>
+            <p>#{pokemon.id}</p>
           </div>
 
           <div className="top-content-holder">

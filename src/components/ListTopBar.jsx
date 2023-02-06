@@ -31,7 +31,7 @@ const ListTopBar = ({
             type="text"
             placeholder="Name on pokemon..."
             onChange={(event) => {
-              setSearchInput(event.target.value);
+              setSearchInput(event.target.value.toLowerCase());
             }}
           />
           <button
@@ -42,7 +42,7 @@ const ListTopBar = ({
           </button>
           {searchResult.length !== 0 && (
             <button
-              id="search-btn"
+              id="reset-btn"
               onClick={() => resetHandler()}
             >
               Reset
