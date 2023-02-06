@@ -8,11 +8,11 @@ const ListLayout = ({ allPokemons, getAllPokemons }) => {
       <div className="list-container">
         {allPokemons
           .sort((pokemon1, pokemon2) => pokemon1.id - pokemon2.id)
-          .map((pokemon, key) => {
+          .map((pokemon, key1) => {
             return (
               <ListPokeRow
                 pokemon={pokemon}
-                key={key}
+                key={key1}
               />
             );
           })}

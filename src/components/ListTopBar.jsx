@@ -18,17 +18,27 @@ const ListTopBar = ({ layoutToggle, setLayoutToggle }) => {
   return (
     <div className="topbar-container">
       <div className="topbar-content">
-        <div
-          className="grid-option-btn"
-          id={!layoutToggle ? "active" : ""}
-        >
-          <FormatListBulletedIcon onClick={() => setLayoutToggle(false)} />
+        <div className="search-container">
+          <input
+            id="search-input"
+            type="text"
+            placeholder="Name on pokemon..."
+          />
+          <button id="search-btn">Search</button>
         </div>
-        <div
-          className="grid-option-btn"
-          id={layoutToggle ? "active" : ""}
-        >
-          <GridViewIcon onClick={() => setLayoutToggle(true)} />
+        <div className="layout-container">
+          <div
+            className="grid-option-btn"
+            id={!layoutToggle ? "active" : ""}
+          >
+            <FormatListBulletedIcon onClick={() => setLayoutToggle(false)} />
+          </div>
+          <div
+            className="grid-option-btn"
+            id={layoutToggle ? "active" : ""}
+          >
+            <GridViewIcon onClick={() => setLayoutToggle(true)} />
+          </div>
         </div>
       </div>
     </div>

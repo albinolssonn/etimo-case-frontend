@@ -11,12 +11,13 @@ function App() {
   const [loadPoke, setLoadPoke] = useState(
     "https://pokeapi.co/api/v2/pokemon?limit=20"
   );
+  const cacheName = "API-call-AllPokemons";
 
   const getAllPokemons = async () => {
     const res = await fetch(loadPoke);
     const data = await res.json();
 
-    addDataIntoCache("API-calls-AllPokemons", loadPoke, loadPoke);
+    addDataIntoCache(cacheName, loadPoke, loadPoke);
 
     setLoadPoke(data.next);
 
