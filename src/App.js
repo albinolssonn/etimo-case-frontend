@@ -7,19 +7,16 @@ import PokeListPage from "./components/PokeListPage";
 import { addDataIntoCache } from "./functions/cache";
 
 function App() {
-  // const [pokemon, setPokemon] = useState([]);
   const [allPokemons, setAllPokemons] = useState([]);
   const [loadPoke, setLoadPoke] = useState(
     "https://pokeapi.co/api/v2/pokemon?limit=20"
   );
-  const [cacheData, setCacheData] = useState();
-  const cacheName = "APICalls";
 
   const getAllPokemons = async () => {
     const res = await fetch(loadPoke);
     const data = await res.json();
 
-    addDataIntoCache(cacheName, loadPoke, loadPoke);
+    addDataIntoCache("API-calls-AllPokemons", loadPoke, loadPoke);
 
     setLoadPoke(data.next);
 
@@ -54,13 +51,7 @@ function App() {
             />
             <Route
               path="/pokedetails/:id"
-              element={
-                <PokeDetailsPage
-                  // pokemon={pokemon}
-                  // getPokemonOnID={getPokemonOnID}
-                  allPokemons={allPokemons}
-                />
-              }
+              element={<PokeDetailsPage />}
             />
           </Routes>
         </div>
