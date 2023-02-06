@@ -1,8 +1,15 @@
-import React, { useEffect } from "react";
+import React from "react";
 import GridViewIcon from "@mui/icons-material/GridView";
 import FormatListBulletedIcon from "@mui/icons-material/FormatListBulleted";
 
-const ListTopBar = ({ layoutToggle, setLayoutToggle }) => {
+const ListTopBar = ({
+  layoutToggle,
+  setLayoutToggle,
+  setSearchInput,
+  getPokemonOnSearch,
+  searchResult,
+  resetHandler,
+}) => {
   // Eventually function with localstorage keep track of the user choise in this section
 
   // const layoutHandler = () => {
@@ -23,8 +30,24 @@ const ListTopBar = ({ layoutToggle, setLayoutToggle }) => {
             id="search-input"
             type="text"
             placeholder="Name on pokemon..."
+            onChange={(event) => {
+              setSearchInput(event.target.value);
+            }}
           />
-          <button id="search-btn">Search</button>
+          <button
+            id="search-btn"
+            onClick={() => getPokemonOnSearch()}
+          >
+            Search
+          </button>
+          {searchResult.length !== 0 && (
+            <button
+              id="search-btn"
+              onClick={() => resetHandler()}
+            >
+              Reset
+            </button>
+          )}
         </div>
         <div className="layout-container">
           <div

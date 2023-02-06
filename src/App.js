@@ -12,6 +12,10 @@ function App() {
     "https://pokeapi.co/api/v2/pokemon?limit=20"
   );
   const cacheName = "API-call-AllPokemons";
+  const cacheNameSearch = "API-call-Search";
+
+  const [searchInput, setSearchInput] = useState([]);
+  const [searchResult, setSearchResult] = useState([]);
 
   const getAllPokemons = async () => {
     const res = await fetch(loadPoke);
@@ -31,7 +35,18 @@ function App() {
       });
     }
     createPokemonObject(data.results);
-    console.log(allPokemons);
+  };
+
+  const getPokemonOnSearch = async () => {
+    const fetchUrl = `https://pokeapi.co/api/v2/pokemon/${searchInput}/`;
+    const res = await fetch(fetchUrl);
+    const data = await res.json();
+    addDataIntoCache(cacheNameSearch, fetchUrl, fetchUrl);
+    setSearchResult(data);
+  };
+
+  const resetHandler = () => {
+    setSearchResult([]);
   };
 
   return (
@@ -47,6 +62,10 @@ function App() {
                   allPokemons={allPokemons}
                   setAllPokemons={setAllPokemons}
                   getAllPokemons={getAllPokemons}
+                  setSearchInput={setSearchInput}
+                  getPokemonOnSearch={getPokemonOnSearch}
+                  searchResult={searchResult}
+                  resetHandler={resetHandler}
                 />
               }
             />

@@ -4,7 +4,14 @@ import GridLayout from "../layout/GridLayout";
 import ListLayout from "../layout/ListLayout";
 import ListTopBar from "./ListTopBar";
 
-const ListPage = ({ allPokemons, getAllPokemons }) => {
+const ListPage = ({
+  allPokemons,
+  getAllPokemons,
+  setSearchInput,
+  getPokemonOnSearch,
+  searchResult,
+  resetHandler,
+}) => {
   const [layoutToggle, setLayoutToggle] = useState(false);
 
   useEffect(() => {
@@ -16,17 +23,23 @@ const ListPage = ({ allPokemons, getAllPokemons }) => {
       <ListTopBar
         layoutToggle={layoutToggle}
         setLayoutToggle={setLayoutToggle}
+        setSearchInput={setSearchInput}
+        getPokemonOnSearch={getPokemonOnSearch}
+        searchResult={searchResult}
+        resetHandler={resetHandler}
       />
 
       {layoutToggle ? (
         <GridLayout
           allPokemons={allPokemons}
           getAllPokemons={getAllPokemons}
+          searchResult={searchResult}
         />
       ) : (
         <ListLayout
           allPokemons={allPokemons}
           getAllPokemons={getAllPokemons}
+          searchResult={searchResult}
         />
       )}
     </div>
