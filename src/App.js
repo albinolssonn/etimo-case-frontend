@@ -8,19 +8,17 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <div className="app">
-          <PageHeader />
-          <Routes>
-            <Route
-              path="/"
-              element={<ListPage />}
-            />
-            <Route
-              path="/pokedetails/:id"
-              element={<DetailsPage />}
-            />
-          </Routes>
-        </div>
+        <PageHeader />
+        <Routes>
+          <Route
+            path="/"
+            element={<ListPage />}
+          />
+          <Route
+            path="/pokedetails/:id"
+            element={<DetailsPage />}
+          />
+        </Routes>
       </Router>
     </div>
   );
